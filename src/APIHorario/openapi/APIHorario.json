@@ -1,0 +1,101 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "APIHorario | v1",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/nocache": {
+      "get": {
+        "tags": [
+          "APIHorario"
+        ],
+        "description": "Exemplo de uso sem HybridCache",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resultado"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cache": {
+      "get": {
+        "tags": [
+          "APIHorario"
+        ],
+        "description": "Utilizando HybridCache",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resultado"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cachequerystring": {
+      "get": {
+        "tags": [
+          "APIHorario"
+        ],
+        "description": "Utilizando HybridCache com Query String",
+        "parameters": [
+          {
+            "name": "valorTeste",
+            "in": "query",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Resultado"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Resultado": {
+        "type": "object",
+        "properties": {
+          "horarioAtual": {
+            "type": "string",
+            "nullable": true
+          },
+          "mensagem": {
+            "type": "string",
+            "nullable": true
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "APIHorario"
+    }
+  ]
+}
