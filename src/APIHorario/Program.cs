@@ -8,7 +8,7 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddStackExchangeRedisCache(options =>
 {
-    options.InstanceName = "APIHorario";
+    options.InstanceName = "APIHorario-";
     options.Configuration = builder.Configuration.GetConnectionString("Redis");
 });
 
@@ -34,7 +34,7 @@ app.MapScalarApiReference(options =>
 });
 
 app.Logger.LogInformation("Endpoint OpenAPI: /openapi/v1.json");
-app.Logger.LogInformation("Endpoint Scalar: /scalar");
+app.Logger.LogInformation("Endpoint Scalar: /scalar/v1");
 
 app.UseHttpsRedirection();
 
